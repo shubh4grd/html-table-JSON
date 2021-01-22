@@ -1,0 +1,100 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+
+<h1>Assignment #2</h1>
+<table class="table table-striped">
+	<tr class="bg-info">
+		<th>MACHINE NAME</th>
+		<th>MACHINE ID</th>
+		<!-- <th>ENERGY CONSUMED (kWh)</th> -->
+		<th>Today</th>
+		<th>MTD</th>
+		<th>YTD</th>
+		<th>Active Power (MW)</th>
+		<th>Apparent Power (MVA)</th>
+		<th>Reactive Power (MVAr)</th>
+		<th>CURRENT(Amps)</th>
+		<th>VOLTAGE (Volts)</th>
+		<th>POWER FACTOR</th>
+		<!-- <th>IDLE TIME</th> -->
+		<th>Today</th>
+		<th>MTD</th>
+		<th>YTD</th>
+	</tr>
+
+	<tbody id="myTable">
+
+	</tbody>
+</table>
+
+<script>
+	var myArray = [{
+    'machine_name': "Auto Winding Machine",
+    'machine_id': "machine001",
+    'current': "0",
+    'voltage': "0",
+    'power_factor': "0",
+    'active_power': "0.0",
+    'apparent_power': "0.0",
+    'reactive_power': "0.0",
+    'daily_energy': "0.0",
+    'monthly_energy': "0",
+    'yearly_energy': "0",
+    'idle_daily': "0",
+    'idle_monthly': "0",
+    'idle_yearly': "0",
+  },
+  {
+    'machine_name': "Boiler Machine",
+    'machine_id': "machine004",
+    'current': "0",
+    'voltage': "0",
+    'power_factor': "0",
+    'active_power': "0.0",
+    'apparent_power': "0.0",
+    'reactive_power': "0.0",
+    'daily_energy': "0.0",
+    'monthly_energy': "0",
+    'yearly_energy': "0",
+    'idle_daily': "0",
+    'idle_monthly': "0",
+    'idle_yearly': "0",
+  },
+	]
+	
+	buildTable(myArray)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].machine_name}</td>
+							<td>${data[i].machine_id}</td>
+							<td>${data[i].current}</td>
+							<td>${data[i].voltage}</td>
+							<td>${data[i].power_factor}</td>
+							<td>${data[i].active_power}</td>
+							<td>${data[i].apparent_power}</td>
+							<td>${data[i].reactive_power}</td>
+							<td>${data[i].daily_energy}</td>
+							<td>${data[i].monthly_energy}</td>
+							<td>${data[i].yearly_energy}</td>
+							<td>${data[i].idle_daily}</td>
+							<td>${data[i].idle_monthly}</td>
+							<td>${data[i].idle_yearly}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
